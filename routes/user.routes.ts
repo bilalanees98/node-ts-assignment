@@ -1,10 +1,10 @@
 import express = require("express");
 const router = express.Router();
 
-import { PostController } from "../controllers/post.controller";
-const base = "/posts";
+import { UserController } from "../controllers/user.controller";
+const base = "/users";
 
-const controller = new PostController();
+const controller = new UserController();
 
 //Routes - pass req, res object to each function - will prolly have to make these async at some point
 router.get(`${base}`, (req, res) => {
@@ -22,4 +22,9 @@ router.put(`${base}/:id`, (req, res) => {
 router.delete(`${base}/:id`, (req, res) => {
   controller.delete(req, res);
 });
-export { router as postRouter };
+
+router.get(`${base}/posts/:id`, (req, res) => {
+  controller.getPosts(req, res);
+});
+
+export { router as userRouter };

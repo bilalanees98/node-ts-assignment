@@ -1,6 +1,7 @@
 import * as dotenv from "dotenv";
 import express from "express";
-import { router } from "./routes/post.routes";
+import { postRouter } from "./routes/post.routes";
+import { userRouter } from "./routes/user.routes";
 import mongoose from "mongoose";
 
 dotenv.config();
@@ -13,11 +14,9 @@ const PORT: number = parseInt(process.env.PORT as string, 10);
 
 const app = express();
 
-//  app.use(helmet());
-//  app.use(cors());
 app.use(express.json());
-app.use(router);
-//  app.use("/api/menu/items", itemsRouter);
+app.use(postRouter);
+app.use(userRouter);
 
 const options: Object = {
   useNewUrlParser: true,

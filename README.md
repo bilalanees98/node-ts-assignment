@@ -65,7 +65,7 @@ See the collection for documentation:
 
 ## Architecture Diagram
 
-![Screenshot](docs/images/architecural-diagram.png)
+![Screenshot](docs/images/architectural-diagram.png)
 
 ## Database Design
 

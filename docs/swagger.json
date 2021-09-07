@@ -1,0 +1,327 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "node-ts-assignment api documentation",
+    "version": "1.0.0",
+    "title": "node-ts-assignment"
+  },
+  "host": "",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "User",
+      "description": "Everything about your Users"
+    },
+    {
+      "name": "Post",
+      "description": "Everything about your Posts"
+    }
+  ],
+  "schemes": ["http"],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get all users",
+        "description": "Get users",
+        "operationId": "get-users",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "All users"
+          }
+        }
+      },
+      "post": {
+        "tags": ["User"],
+        "summary": "Signup user",
+        "description": "Signup user",
+        "operationId": "signup",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Signup user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get a user",
+        "description": "Get a user",
+        "operationId": "get-user",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A user"
+          }
+        }
+      },
+      "put": {
+        "tags": ["User"],
+        "summary": "Update my profile",
+        "description": "Update my profile",
+        "operationId": "update-user",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Update user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["User"],
+        "summary": "Delete User",
+        "description": "Delete user",
+        "operationId": "delete-user",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/users/posts/{id}": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get a users posts",
+        "description": "Get my posts",
+        "operationId": "get-user-posts",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All my posts"
+          }
+        }
+      }
+    },
+    "/posts": {
+      "get": {
+        "tags": ["Post"],
+        "summary": "Get Posts",
+        "description": "Get Posts",
+        "operationId": "get-posts",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Post"],
+        "summary": "Add Post",
+        "description": "Add Post",
+        "operationId": "add-post",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/posts/{id}": {
+      "get": {
+        "tags": ["Post"],
+        "summary": "Get a Post",
+        "description": "Get a post",
+        "operationId": "get-post",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of post",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A Post"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Post"],
+        "summary": "Update Post",
+        "description": "Update Post",
+        "operationId": "update-post",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Post",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Post"],
+        "summary": "Delete Post",
+        "description": "Delete Post",
+        "operationId": "delete-post",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Post",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "required": ["email", "firstName", "lastName", "password", "phoneNumber"],
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "user@domain.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "123456"
+        },
+        "firstName": {
+          "type": "string",
+          "example": "jon"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "doe"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "example": "+13433423443"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    },
+    "Post": {
+      "type": "object",
+      "required": ["body", "title"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "my first post"
+        },
+        "body": {
+          "type": "string",
+          "example": "lorum ipsum"
+        }
+      },
+      "xml": {
+        "name": "Post"
+      }
+    }
+  }
+}
